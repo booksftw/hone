@@ -33,7 +33,7 @@ export default function Login() {
 
     return (
         <>
-            <h1 className={"text-black mb-5"}>Hone</h1>
+            <img src="public\images\hone-logo.png" className="mb-16" />
             <div>
                 <form onSubmit={formik.handleSubmit}>
                     <TextField
@@ -46,20 +46,23 @@ export default function Login() {
                         error={formik.touched.email && Boolean(formik.errors.email)}
                         helperText={formik.touched.email && formik.errors.email}
                     />
-                    <TextField
-                        fullWidth
-                        id="password"
-                        name="password"
-                        label="Password"
-                        type="password"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                        error={formik.touched.password && Boolean(formik.errors.password)}
-                        helperText={formik.touched.password && formik.errors.password}
-                        className="!mt-5"
-                    />
+                    <div>
+                        <span>Show/Hide</span>
+                        <TextField
+                            fullWidth
+                            id="password"
+                            name="password"
+                            label="Password"
+                            type="password"
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                            error={formik.touched.password && Boolean(formik.errors.password)}
+                            helperText={formik.touched.password && formik.errors.password}
+                            className="!mt-5"
+                        />
+                    </div>
                     <Button variant="outlined" fullWidth type="submit" className={"!bg-orange-500 !w-48 !mt-5 !rounded-lg !text-white"}>
-                        Login
+                        Log-in
                     </Button>
                     <Button variant="outlined" fullWidth type="submit" className={"!bg-white !text-black !w-48 !mt-5 !rounded-lg !block !mx-auto"}>
                         Create Account
