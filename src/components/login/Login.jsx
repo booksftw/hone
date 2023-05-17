@@ -46,21 +46,19 @@ export default function Login() {
                         error={formik.touched.email && Boolean(formik.errors.email)}
                         helperText={formik.touched.email && formik.errors.email}
                     />
-                    <div>
-                        <span>Show/Hide</span>
-                        <TextField
-                            fullWidth
-                            id="password"
-                            name="password"
-                            label="Password"
-                            type="password"
-                            value={formik.values.password}
-                            onChange={formik.handleChange}
-                            error={formik.touched.password && Boolean(formik.errors.password)}
-                            helperText={formik.touched.password && formik.errors.password}
-                            className="!mt-5"
-                        />
-                    </div>
+                    <TextField
+                        fullWidth
+                        id="password"
+                        name="password"
+                        label="Password"
+                        type="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        error={formik.touched.password && Boolean(formik.errors.password)}
+                        helperText={formik.touched.password && formik.errors.password}
+                        className="!mt-5 "
+                    />
+
                     <Button variant="outlined" fullWidth type="submit" className={"!bg-orange-500 !w-48 !mt-5 !rounded-lg !text-white"}>
                         Log-in
                     </Button>
