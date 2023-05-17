@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 // import Button from '@mui/material/Button';
 import { useFormik } from 'formik';
 import GoogleIcon from '@mui/icons-material/Google';
+import AppleIcon from '@mui/icons-material/Apple';
 
 const validationSchema = yup.object({
     email: yup
@@ -60,12 +61,20 @@ export default function Login() {
                     <Button variant="outlined" fullWidth type="submit" className={"!bg-orange-500 !w-48 !mt-5 !rounded-lg !text-white"}>
                         Login
                     </Button>
-                    <Button variant="outlined" fullWidth type="submit" className={"!bg-white !text-black !w-48 !mt-5 !rounded-lg"}>
+                    <Button variant="outlined" fullWidth type="submit" className={"!bg-white !text-black !w-48 !mt-5 !rounded-lg !block !mx-auto"}>
                         Create Account
                     </Button>
-                    {/* <GoogleIcon /> */}
+
+                    <div className="mt-5">
+                        <button className="!bg-transparent !border-none">
+                            <GoogleIcon sx={{ color: "black" }} className="!inline-block" />
+                        </button>
+                        <button className="!bg-transparent !border-none">
+                            <AppleIcon sx={{ color: "black" }} className="!inline-block" />
+                        </button>
+                    </div>
                 </form>
-            </div>
+            </div >
         </>
     )
 }
