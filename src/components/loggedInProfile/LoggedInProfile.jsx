@@ -16,7 +16,6 @@ export default function LoggedInProfile(props) {
         color: 'black'
 
     };
-    let test = "";
     if (props.isLandlord) {
         return (
             <>

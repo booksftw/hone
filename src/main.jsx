@@ -12,6 +12,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* Debugging/Testing */}
     {/* <Login /> */}
     {/* <LandlordProfile /> */}
-    <LoggedInProfile isLandlord={true} />
+    <LoggedInProfile isLandlord={false} />
   </React.StrictMode>,
 )
