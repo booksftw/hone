@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { GoogleMap, useJsApiLoader, Circle } from '@react-google-maps/api';
 import Slider from '@mui/material/Slider';
+
 
 const containerStyle = {
     width: '400px',
@@ -11,24 +12,34 @@ const containerStyle = {
 
 
 export default function TenantPreferenceLocation(props) {
+
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [zoom, setZoom] = useState(15);
+
+
     const center = {
         lat: props.lat,
         lng: props.lng
     };
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [zoom, setZoom] = useState(15);
 
     setTimeout(() => {
         setIsLoaded(true)
 
     }, 3000)
-    setTimeout(() => {
-        setZoom(2)
 
-    }, 3500)
+    useEffect(() => {
+        setZoom(10)
+        console.log("coords changed")
+        // setTimeout(() => {
+        //     setZoom(13)
+    
+        // }, 4500)
+    }, [props.lng, props.lat])
+
+  
     // const { isLoaded } = useJsApiLoader({
     //     id: 'google-map-script',
-    //     // googleMapsApiKey: "AIzaSyCJtncQqXCRQleNhLFo1YXP5_bq_1zH7Ck"
+    //     googleMapsApiKey: "AIzaSyCJtncQqXCRQleNhLFo1YXP5_bq_1zH7Ck"
     // })
     // useJsApiLoader({
     //     id: 'google-map-script',
@@ -39,7 +50,7 @@ export default function TenantPreferenceLocation(props) {
 
     const onLoad = React.useCallback(function callback(map) {
         // This is just an example of getting and using the map instance!!! don't just blindly copy!
-        const bounds = new window.google.maps.LatLngBounds(center);
+        const bounds = new window.google.maps.LatLngBounds( center);
         map.fitBounds(bounds);
 
         setMap(map)
@@ -50,10 +61,10 @@ export default function TenantPreferenceLocation(props) {
     }, [])
 
     const options = {
-        strokeColor: '#FF0000',
+        strokeColor: '#000000',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#FF0000',
+        fillColor: '#000000',
         fillOpacity: 0.35,
         clickable: false,
         draggable: false,
@@ -61,6 +72,10 @@ export default function TenantPreferenceLocation(props) {
         visible: true,
         radius: 30000,
         zIndex: 1
+    }
+
+    const onChange = () => {
+        console.log("$_$")
     }
 
     return (
@@ -72,6 +87,7 @@ export default function TenantPreferenceLocation(props) {
                     center={center}
                     zoom={zoom}
                     onLoad={onLoad}
+                    onCenterChanged={onChange}
                     onUnmount={onUnmount}
                 >
                     {/* <div className="rounded-full w-10 h-10">
@@ -79,7 +95,7 @@ export default function TenantPreferenceLocation(props) {
                     </div>
 
                     <h1>Test</h1> */}
-                    <Circle center={center} radius={3000} options={options} />
+                    <Circle center={center} radius={300} options={options} />
                     { /* Child components, such as markers, info windows, etc. */}
                     <></>
                 </GoogleMap>

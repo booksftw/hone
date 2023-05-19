@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Login /> */}
     {/* <LandlordProfile /> */}
     {/* <LoggedInProfile isLandlord={false} /> */}
-    {/* <TenantPreferenceLocation /> */}
+    {/* <TenantPreferenceLocation lat={0} lng={0}/> */}
     <TenantPreferenceLocationSearchInput />
     {/* <TenantPreferenceLocationGeocode /> */}
   </React.StrictMode>,
