@@ -8,6 +8,7 @@ import LoggedInProfile from './components/loggedInProfile/loggedInProfile.jsx'
 import TenantPreferenceLocation from './components/tenantPreferenceLocation/TenantPreferenceLocation.jsx'
 import TenantPreferenceLocationSearchInput from './components/tenantPreferenceLocationSearchInput/TenantPreferenceLocationSearchInput.jsx'
 import TenantPreferenceLocationGeocode from './components/tenantPreferenceLocationGeocode/TenantPreferenceLocationGeocode.jsx'
+import ScratchMaps from './components/scratchMaps/scratchMaps.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,7 +18,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <LandlordProfile /> */}
     {/* <LoggedInProfile isLandlord={false} /> */}
     {/* <TenantPreferenceLocation lat={0} lng={0}/> */}
-    <TenantPreferenceLocationSearchInput />
+    {/* <TenantPreferenceLocationSearchInput /> */}
     {/* <TenantPreferenceLocationGeocode /> */}
+    <ScratchMaps />
   </React.StrictMode>,
 )
