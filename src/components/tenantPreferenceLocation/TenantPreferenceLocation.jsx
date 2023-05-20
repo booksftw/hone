@@ -36,11 +36,11 @@ export default function TenantPreferenceLocation(props) {
 
   // const { isLoaded } = useJsApiLoader({
   //     id: 'google-map-script',
-  //     googleMapsApiKey: "AIzaSyCJtncQqXCRQleNhLFo1YXP5_bq_1zH7Ck"
+  //     googleMapsApiKey: "AIzaSyDbuOKMGJfPoAbiXmbESa1e6P9Wg1bIaUA"
   // })
   // useJsApiLoader({
   //     id: 'google-map-script',
-  //     googleMapsApiKey: "AIzaSyCJtncQqXCRQleNhLFo1YXP5_bq_1zH7Ck"
+  //     googleMapsApiKey: "AIzaSyDbuOKMGJfPoAbiXmbESa1e6P9Wg1bIaUA"
   // })
 
   const [map, setMap] = React.useState(null);

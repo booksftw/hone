@@ -13,7 +13,7 @@ import TenantPreferenceLocation from '../tenantPreferenceLocation/TenantPreferen
 import Geocode from "react-geocode";
 
 // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-Geocode.setApiKey("AIzaSyCJtncQqXCRQleNhLFo1YXP5_bq_1zH7Ck");
+Geocode.setApiKey("AIzaSyDbuOKMGJfPoAbiXmbESa1e6P9Wg1bIaUA");
 
 // set location_type filter . Its optional.
 // google geocoder returns more that one address for given lat/lng.
@@ -32,7 +32,7 @@ Geocode.enableDebug();
 
 // This key was created specifically for the demo in mui.com.
 // You need to create a new one for your application.
-const GOOGLE_MAPS_API_KEY = 'AIzaSyCJtncQqXCRQleNhLFo1YXP5_bq_1zH7Ck';
+const GOOGLE_MAPS_API_KEY = 'AIzaSyDbuOKMGJfPoAbiXmbESa1e6P9Wg1bIaUA';
 
 function loadScript(src, position, id) {
     if (!position) {
