@@ -18,8 +18,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <LandlordProfile /> */}
     {/* <LoggedInProfile isLandlord={false} /> */}
     {/* <TenantPreferenceLocation lat={0} lng={0}/> */}
-    {/* <TenantPreferenceLocationSearchInput /> */}
+    <TenantPreferenceLocationSearchInput />
     {/* <TenantPreferenceLocationGeocode /> */}
-    <ScratchMaps />
+    {/* <ScratchMaps /> */}
   </React.StrictMode>,
 )

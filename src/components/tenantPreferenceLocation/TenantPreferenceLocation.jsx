@@ -48,7 +48,30 @@ export default function TenantPreferenceLocation(props) {
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    // const x = new window.google.maps;
+    // map.fitBounds(bounds);// zooms in
+    // const x = new window.google.maps;
+    // x.Circle({
+    //     center: center,
+    //     radius: 300, 
+    //     options: options
+    // })
+    // const {Circle} = google.maps.importLibrary("maps")
+    // x.overlayMapTypes = [Circle];
+
+    const circleOptions = {
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        center: { lat: center.lat, lng:center.lng},
+        radius: 1000 // in meters
+      };
+    const circle = new window.google.maps.Circle(circleOptions);
+    circle.setMap(map);
+
 
     setMap(map);
   }, []);
@@ -78,16 +101,17 @@ export default function TenantPreferenceLocation(props) {
           center={center}
           zoom={zoom}
           onLoad={onLoad}
-          onUnmount={onUnmount}
+        //   onUnmount={onUnmount}
         >
           {/* <div className="rounded-full w-10 h-10">
                         <img src="public\images\hone-logo.png" alt="" />
                     </div>
 
                     <h1>Test</h1> */}
-          <Marker position={center} />
           <Circle center={center} radius={300} options={options} />
+          <Marker position={center} />
           {/* Child components, such as markers, info windows, etc. */}
+             
           <></>
         </GoogleMap>
 

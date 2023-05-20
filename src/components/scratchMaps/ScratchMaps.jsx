@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { ref } from "yup";
 
 const AnyReactComponent = ({ text }) => (
   <div className="text-orange-500 rounded-full bg-emerald-500 w-10 h-10">
@@ -10,6 +11,9 @@ const AnyReactComponent = ({ text }) => (
 
 export default function ScratchMaps() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const test = useRef();
+  const [lat, setLat] = useState(48.42604439999999)
+  const [lng, setLng] = useState(-123.3697281)
   const defaultProps = {
     center: {
       lat: 48.42604439999999,
@@ -18,13 +22,11 @@ export default function ScratchMaps() {
     zoom: 15,
   };
 
-  const onChange = (e) => {
-    console.log(e);
-  }
+
 
   setTimeout(() => {
     setIsLoaded(true);
-  }, 3000);
+  }, 500);
   return isLoaded ? (
     <>
       <h1>Hello world</h1>
@@ -33,17 +35,22 @@ export default function ScratchMaps() {
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyDbuOKMGJfPoAbiXmbESa1e6P9Wg1bIaUA" }}
           defaultCenter={defaultProps.center}
+          center={defaultProps.center}
           defaultZoom={defaultProps.zoom}
-          onChange={onChange}
+          onDragEnd={()=> {
+            setLat(48.42)
+            setLng(-123.36)
+          }}
         >
-          <div
+          {/* <div
             lat={48.42604439999999}
             lng={-123.3697281}
             className="text-orange-500 rounded-full bg-emerald-500 w-10 h-10"
+            style={{width: '300px'}}
           >
             dsadsa
-          </div>
-          {/* <AnyReactComponent lat={48.42604439999999} lng={-123.3697281} text="My Marker" /> */}
+          </div> */}
+          <AnyReactComponent lat={lat} lng={lng} text="My Marker" ref={test} />
         </GoogleMapReact>
       </div>
     </>
