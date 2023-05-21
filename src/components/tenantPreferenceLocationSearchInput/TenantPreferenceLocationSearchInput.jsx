@@ -8,12 +8,14 @@ import Typography from '@mui/material/Typography';
 import parse from 'autosuggest-highlight/parse';
 import { debounce } from '@mui/material/utils';
 import TenantPreferenceLocation from '../tenantPreferenceLocation/TenantPreferenceLocation';
+import Slider from "@mui/material/Slider";
 
 // Geocode
 import Geocode from "react-geocode";
+import { Button } from '@mui/material';
 
 // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-Geocode.setApiKey("AIzaSyDbuOKMGJfPoAbiXmbESa1e6P9Wg1bIaUA");
+Geocode.setApiKey("AIzaSyD55wvFzTiDWmCy-c9hskQ_eZ9i4ZwgM8I");
 
 // set location_type filter . Its optional.
 // google geocoder returns more that one address for given lat/lng.
@@ -32,7 +34,7 @@ Geocode.enableDebug();
 
 // This key was created specifically for the demo in mui.com.
 // You need to create a new one for your application.
-const GOOGLE_MAPS_API_KEY = 'AIzaSyDbuOKMGJfPoAbiXmbESa1e6P9Wg1bIaUA';
+const GOOGLE_MAPS_API_KEY = 'AIzaSyD55wvFzTiDWmCy-c9hskQ_eZ9i4ZwgM8I';
 
 function loadScript(src, position, id) {
     if (!position) {
@@ -56,6 +58,28 @@ export default function TenantPreferenceLocationSearchInput() {
     const loaded = React.useRef(false);
     const [theLat, setTheLat] = React.useState(48.42604439999999)
     const [theLng, setTheLng] = React.useState(-123.3697281)
+    // const [radius, setRadius] = React.useState(1000)
+    const [radius, setRadius] = React.useState(25)
+    const [loadMap, setLoadMap] = React.useState(false);
+
+    const marks = [
+        {
+            value: 0,
+            label: '0m',
+        },
+        {
+            value: 20,
+            label: '20m',
+        },
+        {
+            value: 37,
+            label: '37m',
+        },
+        {
+            value: 100,
+            label: '100m',
+        },
+    ];
 
     if (typeof window !== 'undefined' && !loaded.current) {
         if (!document.querySelector('#google-maps')) {
@@ -127,6 +151,7 @@ export default function TenantPreferenceLocationSearchInput() {
                 options={options}
                 autoComplete
                 includeInputInList
+                className='mx-auto mb-5'
                 filterSelectedOptions
                 value={value}
                 noOptionsText="No locations"
@@ -192,7 +217,39 @@ export default function TenantPreferenceLocationSearchInput() {
                     );
                 }}
             />
-            <TenantPreferenceLocation lat={theLat} lng={theLng} />
+
+            {loadMap ?
+                <TenantPreferenceLocation radius={radius} lat={theLat} lng={theLng} />
+                : <h1 className='text-black text-sm text-center'>"Select search radius with slider and hit update"</h1>}
+            {/* Improvement: Implement a spinning loading animation instead of empty string */}
+
+
+
+            <div className='flex justify-center gap-10'>
+
+                <Slider
+                    onChange={(e) => {
+                        // setRadius(e.target.value)
+                        setRadius(e.target.value)
+                    }}
+                    defaultValue={radius}
+                    aria-label="Default"
+                    valueLabelDisplay="auto"
+                    marks={marks}
+                    style={{ width: "60%" }}
+                    className='!flex-initial'
+
+                />
+
+                <Button onClick={() => {
+                    setLoadMap(false)
+                    setTimeout(() => {
+                        setLoadMap(true)
+                    }, 500)
+                }}
+                    className='!flex-initial ml-10'
+                > Search </Button>
+            </div>
         </>
     );
 

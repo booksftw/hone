@@ -1,5 +1,5 @@
 import React from "react";
-import GoogleMapReact from "google-map-react";
+// import GoogleMapReact from "google-map-react";
 import { useState, useRef } from "react";
 import { ref } from "yup";
 
@@ -37,7 +37,7 @@ export default function ScratchMaps() {
           defaultCenter={defaultProps.center}
           center={defaultProps.center}
           defaultZoom={defaultProps.zoom}
-          onDragEnd={()=> {
+          onDragEnd={() => {
             setLat(48.42)
             setLng(-123.36)
           }}

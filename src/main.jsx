@@ -7,7 +7,7 @@ import LandlordProfile from './components/landlordProfile/LandlordProfile.jsx'
 import LoggedInProfile from './components/loggedInProfile/loggedInProfile.jsx'
 import TenantPreferenceLocation from './components/tenantPreferenceLocation/TenantPreferenceLocation.jsx'
 import TenantPreferenceLocationSearchInput from './components/tenantPreferenceLocationSearchInput/TenantPreferenceLocationSearchInput.jsx'
-import TenantPreferenceLocationGeocode from './components/tenantPreferenceLocationGeocode/TenantPreferenceLocationGeocode.jsx'
+// import TenantPreferenceLocationGeocode from './components/tenantPreferenceLocationGeocode/TenantPreferenceLocationGeocode.jsx'
 import ScratchMaps from './components/scratchMaps/scratchMaps.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
