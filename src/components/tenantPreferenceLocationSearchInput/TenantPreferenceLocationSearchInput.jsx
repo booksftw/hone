@@ -220,7 +220,7 @@ export default function TenantPreferenceLocationSearchInput() {
 
             {loadMap ?
                 <TenantPreferenceLocation radius={radius} lat={theLat} lng={theLng} />
-                : <h1 className='text-black text-sm text-center'>"Select search radius with slider and hit update"</h1>}
+                : <h1 className='text-black text-sm text-center'>"To search the map enter your location and radius and hit search"</h1>}
             {/* Improvement: Implement a spinning loading animation instead of empty string */}
 
 
